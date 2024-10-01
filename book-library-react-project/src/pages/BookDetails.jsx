@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom'; 
 const BookDetails = ()  => { 
   const location = useLocation(); 
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const BookDetails = ()  => {
       <p>{book.first_publish_year ? ( <>Published: {book.first_publish_year}</>):"Publish year not found" }</p> 
       {book.publisher && book.publisher.length > 0 ? <p>Publisher: {book.publisher[0]}</p>: (<p>No Poblishers available</p>)} 
       {book.number_of_pages_median ? (<p>Number of Pages: {book.number_of_pages_median}</p>): (
-              <p>Not Found</p>
+              <p> Number of Pages cannot be found</p>
       )} 
       {book.subject && book.subject.length > 0 ? (
         <div>

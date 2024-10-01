@@ -18,7 +18,7 @@ const BookList = () => {
              
                ))
             ): (
-            <p className='text-white'>Go fuck yourself</p>
+            <p className='text-white justify-center text-center mx-auto'>No books related to your search</p>
             )}
           </div>
    

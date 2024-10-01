@@ -6,7 +6,10 @@ export default {
   ],
   theme: {
     extend: {
-      
+      fontFamily: { 
+        lora: ['Lora', 'serif'],
+        roboto: ['Roboto', 'sans-serif']
+      }
     },
   },
   plugins: [],
