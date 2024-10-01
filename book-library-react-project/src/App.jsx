@@ -1,7 +1,6 @@
 import React from 'react'; 
 import { BrowserRouter as Router, Routes, Route,Link, BrowserRouter } from 'react-router-dom'; 
 import HomePage from './pages/HomePage'; 
-import BookCard from './components/BookCard'; 
 import BookDetails from './pages/BookDetails'; 
 import Login from './pages/Login';
 import BookList from './pages/BookList';
@@ -19,7 +18,6 @@ function App() {
             <Route path='/login' element={<Login/>}/>
         </Routes>
       <h1 className="text-3xl font-bold underline text-red-500">
-      Hello world!
       </h1> 
       </Router> 
     </>

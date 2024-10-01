@@ -11,25 +11,44 @@ const SearchBar = ({ setBooks }) => {
   const [isloading, setIsLoading]= useState(false) 
   const navigate = useNavigate();
  
-   const handleSearch = async (e) => { 
-     e.preventDefault();  
-     setIsLoading(true) 
-     try{
-       const results = await BookSearch(query,type);
-       console.log(results)
-       setBooks(results)  
-       navigate('/booklist')
+    const handleSearch = async (e) => { 
+      e.preventDefault();  
+      setIsLoading(true) 
+      try{
+        const results = await BookSearch(query,type);
+        console.log(results)
+        setBooks(results)  
+        navigate('/booklist')
        
-     }catch(error){
-       console.log( "Error", error)
-      }finally{
-     setIsLoading(false);
-      }
-   }
+      }catch(error){
+        console.log( "Error", error)
+       }finally{
+      setIsLoading(false);
+       }
+    } 
+  //  useEffect(() => {
+  //   const handleSearch = async () => {
+  //     if(query === "" && type === '') 
+  //       return; 
+  //     setIsLoading(true); 
+  //     try{
+  //       const results = await BookSearch(query,type);
+  //       console.log(results)
+  //       setBooks(results)  
+  //       navigate('/booklist')
+        
+  //     }catch(error){
+  //       console.log( "Error", error)
+  //      }finally{
+  //     setIsLoading(false);
+  //      }
+  //   }; 
+  //   handleSearch();
+  //  }, [query, type, setBooks,navigate])
   
   return ( 
     <div className='mx-auto w-1/2'>
-   <form className='flex justfiy-center w-full max-w-lg ' onSubmit={handleSearch}> 
+    <form className='flex justfiy-center w-full max-w-lg 'onSubmit={handleSearch}>
   
    <input type="text" placeholder='Find your book.....' className='pl-10 pr-4  py-2 border border-gray-300 rounded-2xl w-full mt-4'value={query}  onChange={(e) => setQuery(e.target.value)}  />  
   
