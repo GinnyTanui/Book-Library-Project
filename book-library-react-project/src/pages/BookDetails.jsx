@@ -39,7 +39,7 @@ const BookDetails = ()  => {
         <div>
           Subjects:
             <ul>
-              {book.subject.map((subject, index) => (
+              {book.subject.slice(0,4).map((subject, index) => (
                 <li key={index}>{subject}</li>
               ))}
             </ul>

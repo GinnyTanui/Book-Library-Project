@@ -3,10 +3,9 @@ import { useState , useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {BookSearch} from './BookSearch'
 
-const SearchBar = ({ setBooks }) => {   
+const SearchBar = ({ setBooks , setSearchInitiated}) => {   
   console.log('SetBooks:', setBooks)
   const [query ,setQuery] = useState(''); 
- // const [books, setBooks] = useState([]); 
   const [type, setType] = useState('');  
   const [isloading, setIsLoading]= useState(false) 
   const navigate = useNavigate();
@@ -18,6 +17,7 @@ const SearchBar = ({ setBooks }) => {
         const results = await BookSearch(query,type);
         console.log(results)
         setBooks(results)  
+        setSearchInitiated(true)
         navigate('/booklist')
        
       }catch(error){
@@ -26,26 +26,7 @@ const SearchBar = ({ setBooks }) => {
       setIsLoading(false);
        }
     } 
-  //  useEffect(() => {
-  //   const handleSearch = async () => {
-  //     if(query === "" && type === '') 
-  //       return; 
-  //     setIsLoading(true); 
-  //     try{
-  //       const results = await BookSearch(query,type);
-  //       console.log(results)
-  //       setBooks(results)  
-  //       navigate('/booklist')
-        
-  //     }catch(error){
-  //       console.log( "Error", error)
-  //      }finally{
-  //     setIsLoading(false);
-  //      }
-  //   }; 
-  //   handleSearch();
-  //  }, [query, type, setBooks,navigate])
-  
+ 
   return ( 
     <div className='mx-auto w-1/2'>
     <form className='flex justfiy-center w-full max-w-lg 'onSubmit={handleSearch}>
@@ -53,9 +34,8 @@ const SearchBar = ({ setBooks }) => {
    <input type="text" placeholder='Find your book.....' className='pl-10 pr-4  py-2 border border-gray-300 rounded-2xl w-full mt-4'value={query}  onChange={(e) => setQuery(e.target.value)}  />  
   
      <select onChange={(e) => setType(e.target.value)} className='mr-4'> 
-        <option value="title">Title</option> 
-        <option value="author">Author</option> 
-        <option value="ISBN">ISBN</option> 
+        <option value="title">Author</option> 
+        <option value="author">Title</option> 
 
     </select> 
     

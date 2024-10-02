@@ -3,12 +3,13 @@ import SearchBar from '../components/SearchBar'
 import NavBar from '../components/NavBar'
 import BookCard from '../components/BookCard'
 const BookList = () => { 
-    const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState([]); 
+    const [searchInitiated, setSearchInitiated] = useState(false); 
   return ( 
     <div className='bg-pink-400'>
         <NavBar/>
           <h1 className='font-bold italic text-blue-700 text-5xl justify-center text-center mt-6'>Hi there!Come find your book!</h1>
-          <SearchBar setBooks={setBooks}/> 
+          <SearchBar setBooks={setBooks} setSearchInitiated={setSearchInitiated}/> 
           <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-4'>
               {books && books.length > 0 ? (
                books.map((book) => (
@@ -17,8 +18,9 @@ const BookList = () => {
               
              
                ))
-            ): (
-            <p className='text-white justify-center text-center mx-auto'>No books related to your search</p>
+            ): ( 
+              searchInitiated && (
+            <p className='text-white justify-center text-center mx-auto'>No books related to your search</p>)
             )}
           </div>
    

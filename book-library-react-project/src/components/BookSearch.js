@@ -6,9 +6,7 @@ import axios from 'axios'
         url = `https://openlibrary.org/search.json?title=${query}`
         }else if(type === "author"){
          url = `https://openlibrary.org/search.json?author=${query}`
-        }else if(type === "ISBN"){
-         url =`https://openlibrary.org/api/books?bibkeys=ISBN:${query}$ format=json&jsmcd=data`
-        } 
+        }
         try{
             const response = await axios.get(url)  
             console.log(response.data);

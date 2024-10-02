@@ -1,5 +1,4 @@
 import React from 'react'
-import bookImage from '../images/book image.jpg'; 
 import fire from '../images/fire.jpg'
 import book from '../images/booklogonice.jpg'
 import { useState } from 'react'; 
@@ -30,8 +29,7 @@ const  NavBar =() => {
           <Link to='/booklist'>Find Books</Link></li> 
       <li className='italic font-semibold  text-blue-600 font-lora hover:underline' >
         <Link to='/book/:id'></Link></li> 
-      <li className='italic font-semibold  text-blue-600 font-lora hover:underline'>
-        <Link to='/login'>Login</Link></li> 
+     
       
     </ul> 
     </div> 
