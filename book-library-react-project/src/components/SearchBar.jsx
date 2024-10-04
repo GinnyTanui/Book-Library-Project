@@ -28,10 +28,10 @@ const SearchBar = ({ setBooks , setSearchInitiated}) => {
     } 
  
   return ( 
-    <div className='mx-auto w-1/2'>
-    <form className='flex justfiy-center w-full max-w-lg 'onSubmit={handleSearch}>
+    <div className='mx-auto w-full sm:w-1/2 p-4'>
+    <form className='flex flex-col justify-center w-full gap-4 'onSubmit={handleSearch}>
   
-   <input type="text" placeholder='Find your book.....' className='pl-10 pr-4  py-2 border border-gray-300 rounded-2xl w-full mt-4'value={query}  onChange={(e) => setQuery(e.target.value)}  />  
+   <input type="text" placeholder='Find your book.....' className='w-full sm:w-2/3 pl-4 py-2 border border-gray-400 rounded-lg'value={query}  onChange={(e) => setQuery(e.target.value)}  />  
   
      <select onChange={(e) => setType(e.target.value)} className='mr-4'> 
         <option value="title">Author</option> 
@@ -39,7 +39,7 @@ const SearchBar = ({ setBooks , setSearchInitiated}) => {
 
     </select> 
     
-    <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-lora rounded-2xl'>
+    <button type="submit" className='w-full sm:w-1/4 bg-blue-500 hover:bg-blue-700 text-white py-2 rounded-lg'>
       Search
     </button> 
     

@@ -12,7 +12,7 @@ const BookDetails = ()  => {
 
   }
   return (
-    <div >
+    <div className='bg-pink-200' >
       <h1 className='font-semibold text-blue-500 justify-center text-center text-3xl mb-4'>BookDetails</h1> 
       <div className='flex flex-col md:flex-row  border rounded-lg p-4 shadow-md hover:shadow-xltransition-shadow transform hover:scale-105 transition-transform duration-300 ease-in-out bg-gray-100'>
       {book.cover_i ? (
