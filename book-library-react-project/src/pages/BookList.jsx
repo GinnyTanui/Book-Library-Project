@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react' 
+import { useEffect } from 'react'
 import SearchBar from '../components/SearchBar' 
 import NavBar from '../components/NavBar'
 import BookCard from '../components/BookCard'
 const BookList = () => { 
     const [books, setBooks] = useState([]); 
     const [searchInitiated, setSearchInitiated] = useState(false); 
+    useEffect(() => {
+      const storedBooks = JSON.parse(localStorage.getItem('searchResults')) 
+      if(storedBooks){
+        setBooks(storedBooks)
+      }
+    }, [])
   return ( 
     <div className='bg-pink-400'>
         <NavBar/>

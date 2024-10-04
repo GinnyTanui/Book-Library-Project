@@ -13,13 +13,14 @@ const SearchBar = ({ setBooks , setSearchInitiated}) => {
     const handleSearch = async (e) => { 
       e.preventDefault();  
       setIsLoading(true) 
+      localStorage.removeItem('searchResults')
       try{
         const results = await BookSearch(query,type);
         console.log(results)
         setBooks(results)  
         setSearchInitiated(true)
         navigate('/booklist')
-       
+        localStorage.setItem('searchResults', JSON.stringify(results))
       }catch(error){
         console.log( "Error", error)
        }finally{
