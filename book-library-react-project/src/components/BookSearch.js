@@ -1,10 +1,10 @@
 import axios from 'axios' 
 
  export const BookSearch = async (query,type) => {  
-    let url="" 
+    let url="";
     if(type === "title"){
         url = `https://openlibrary.org/search.json?title=${query}`
-        }else if(type === "author"){
+        }else if (type === "author"){
          url = `https://openlibrary.org/search.json?author=${query}`
         }
         try{
