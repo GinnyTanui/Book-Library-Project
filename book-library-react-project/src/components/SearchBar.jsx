@@ -10,7 +10,8 @@ const SearchBar = ({ setBooks , setSearchInitiated}) => {
   const [isloading, setIsLoading]= useState(false) 
   const navigate = useNavigate();
   
-  const [debouncedQuery, setDebouncedQuery] = useState(query); 
+  const [debouncedQuery, setDebouncedQuery] = useState(query);  
+  
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedQuery(query);
@@ -47,7 +48,6 @@ const SearchBar = ({ setBooks , setSearchInitiated}) => {
       setIsLoading(false);
        }
     } 
- 
   return ( 
     <div className='mx-auto w-full sm:w-1/2 p-4'>
     <form className='flex flex-col justify-center w-full gap-4 'onSubmit={handleSearch}>
