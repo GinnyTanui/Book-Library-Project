@@ -29,7 +29,8 @@ const SearchBar = ({ setBooks , setSearchInitiated}) => {
         console.error('Serach qury is empty');
         setIsLoading(false); 
         return;
-      }
+      } 
+     
       try{
         const results = await BookSearch(debouncedQuery,type);
         console.log(results)
@@ -48,6 +49,7 @@ const SearchBar = ({ setBooks , setSearchInitiated}) => {
       setIsLoading(false);
        }
     } 
+ 
   return ( 
     <div className='mx-auto w-full sm:w-1/2 p-4'>
     <form className='flex flex-col justify-center w-full gap-4 'onSubmit={handleSearch}>
@@ -63,7 +65,6 @@ const SearchBar = ({ setBooks , setSearchInitiated}) => {
     <button type="submit" className='w-full sm:w-1/4 bg-blue-500 hover:bg-blue-700 text-white py-2 rounded-lg' disabled={isloading}>
       Search
     </button> 
-    
    </form>  
    <div>
       {isloading ? <p>Loading...</p> : (
